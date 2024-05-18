@@ -6,6 +6,7 @@ devtools::install_github("guoxuan-ma/BAUM")
 ``
 
 The package was developed with R 4.1.2. Versions of the dependencies:
+
 ``
 Matrix 1.3-4\
 TruncatedNormal 2.2.2\
