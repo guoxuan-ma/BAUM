@@ -8,9 +8,5 @@ devtools::install_github("guoxuan-ma/BAUM")
 The package was developed with R 4.1.2. Versions of the dependencies:
 
 ``
-Matrix 1.3-4\n
-TruncatedNormal 2.2.2\
-truncnorm 1.0-8\
-mvtnorm 1.1-3\
-igraph 1.2.9\
+Matrix 1.3-4, TruncatedNormal 2.2.2, truncnorm 1.0-8, mvtnorm 1.1-3, igraph 1.2.9
 ``
