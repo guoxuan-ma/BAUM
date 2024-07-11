@@ -64,7 +64,7 @@ loglikelihood = function(r, Lambda, z, eta_0, eta_1, sigma2) {
 
 logfullconditional.z = function(r, Lambda, z, eta_0, eta_1, sigma2, pi) {
   loglik = loglikelihood(r, Lambda, z, eta_0, eta_1, sigma2)
-  log_fullconditional = loglik + sum(log(pi[z]))
+  log_fullconditional = loglik + sum(log(pi[z + 1]))
   return(log_fullconditional)
 }
 
