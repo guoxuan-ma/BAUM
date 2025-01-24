@@ -476,7 +476,7 @@ BAUM = function(r, # test statistics
           num_g = sum(in_group)
           if (num_g == 0) {next}
           Lambda_J1_g = as.matrix(current_para[['Lambda']][, in_group])
-          Sigma_p = solve(crossprod(Lambda_J1_g) / current_para[['sigma_sq']] + current_para[['gamma_1']][group] * diag(num_g))
+          Sigma_p = solve(crossprod(Lambda_J1_g) / current_para[['sigma_sq']] + diag(num_g) / current_para[['gamma_1']][group])
           m_p = tcrossprod(Sigma_p, Lambda_J1_g) %*% (r - current_para[['eta_0']] * rowSums(Lambda_J0)) / current_para[['sigma_sq']] +
             Sigma_p %*% rep(current_para[['m_1']][group], num_g) / current_para[['gamma_1']][group]
           current_para[['eta_1']][in_group] = rmvnorm(n = 1, mean = m_p, sigma = Sigma_p)
