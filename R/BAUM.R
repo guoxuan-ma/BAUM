@@ -42,13 +42,15 @@ SWCut = function(z, rho, GCut) {
       gl = gl + newG$no
     } else {
       nnode = length(V)
-      gList[gl:(gl + nnode-1)] = lapply(1:nnode, function(x) {
-        mygraph = igraph::graph.empty(0, directed = FALSE)
-        mygraph = igraph::add.vertices(mygraph,nv = 1)
-        mygraph = igraph::set.vertex.attribute(mygraph, "node", value = vnode[x])
-        return(mygraph)
-      })
-      gl = gl + nnode
+      if (nnode > 0) {
+        gList[gl:(gl + nnode-1)] = lapply(1:nnode, function(x) {
+          mygraph = igraph::graph.empty(0, directed = FALSE)
+          mygraph = igraph::add.vertices(mygraph,nv = 1)
+          mygraph = igraph::set.vertex.attribute(mygraph, "node", value = vnode[x])
+          return(mygraph)
+        })
+        gl = gl + nnode
+      }
     }
     locvec = c(locvec,vnode)
   }
