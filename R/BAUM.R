@@ -78,8 +78,9 @@ update.z = function(SWCutList, r, Lambda, z, eta_0, eta_1, sigma2, pi) {
     z.graph = z[node.graph]
     newz.graph = (!z[node.graph])*1
 
-    Lambda.graph = as.matrix(Lambda[, node.graph])
+    Lambda.graph = as.matrix(Lambda[, node.graph, drop = F])
     r.graph = r[(rowSums(Lambda.graph) != 0)]
+    Lambda.graph = as.matrix(Lambda.graph[rowSums(Lambda.graph) != 0, , drop = F])
 
     oldfullconditional = logfullconditional.z(r.graph, Lambda.graph, z.graph, eta_0, eta_1[node.graph], sigma2, pi)
     newfullconditional = logfullconditional.z(r.graph, Lambda.graph, newz.graph, eta_0, eta_1[node.graph], sigma2, pi)
